@@ -44,4 +44,4 @@ jobs:
         run: apt-get update && apt-get -y install ${{ matrix.dependencies }}
 
       - name: Build
-        run: ./simple-build-and-install
+        run: I_WANT_TO_MESS_UP_MY_FILE=YES ./simple-build-and-install

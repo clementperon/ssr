@@ -12,8 +12,10 @@ set -e
 cd "$( dirname "${BASH_SOURCE[0]}" )"
 
 if [ x"$( whoami )" = x"root" ]; then
-	echo "Error: don't run this script as root, this will mess up file permissions"
-	exit 1
+	if ! [ x"${I_WANT_TO_MESS_UP_MY_FILE}" = x"YES" ]; then
+		echo "Error: don't run this script as root, this will mess up file permissions"
+		exit 1
+	fi
 fi
 
 export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/local/lib64/pkgconfig:/usr/local/lib/pkgconfig"
